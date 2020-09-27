@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* IMPORT FONTS FROM GOOGLE FONTS */
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato&family=Roboto&family=Sofia&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+        /*-----------------------------------------------*/
+        *{
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            outline: none;
+            list-style: none;
+            
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            padding: 10px 80px;
+            padding-bottom: 0;
+            box-sizing: border-box;
+            transition: 0.2s;
+            background: linear-gradient(to top,#fffffff8, #ffe9e9f8 );
+        }
+        nav.black{
+            z-index: 5000;
+            background: linear-gradient(to right, #571830f8,#441326f8,black );
+            height: 75px;
+            padding: 10px;
+            padding: 10px 50px;
+            border-bottom: 5px solid #2bc083;
+            box-shadow: 0 10px 30px rgb(63, 63, 63);
+            transition: 0.3s;
+        }
+        nav .logo{
+            float: left;
+        }
+        nav .logo img{
+            height: 125px;
+            transition: 0.2s;
+        }
+        nav.black .logo img{
+            height: 50px;            
+        }
+        nav ul{
+            float: right;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li{
+            list-style: none;
+        }
+        nav ul li a{
+            text-decoration: none;
+            line-height: 120px;
+            color: #262626;
+            padding: 12px 20px;
+            margin-left: 4px;
+            font-family: 'Oswald', sans-serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.5s;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        nav ul li a:hover{
+            text-decoration: none;
+            background: black;
+            color: white;
+        }
+        nav.black ul li a{
+            text-decoration: none;
+            color: #fff;
+            line-height: 50px;
+            background: transparent;
+            padding: 7px 10px;
+            transition: ease 0.7s;            
+        }
+        nav .fa{
+            font-size: 25px;
+            margin-right: 10px;
+        }
+        nav.black ul li a:hover{
+            background: white;
+            color: black;
+        }
+        /*NAVBAR 2*/
+        .wrapper{
+        font-family: 'Josefin Sans', sans-serif;
+        width: 100%;
+        }
+
+        .wrapper .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 30px;
+        background: #2376aa;
+        height: 60px;
+        }
+
+        .wrapper .navbar .menu ul li{
+        display: inline-block;
+        margin: 15px 10px;
+        }
+
+        .wrapper .navbar .menu ul li a{
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 12px;
+        }
+
+        .searchbar{
+        position: relative;
+        }
+
+        .searchbar input[type="text"]{
+        border: 0;
+        padding: 0;
+        width: 0px;
+        height: 35px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        }
+
+        .searchbar .icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 35px;
+        height: 100%;
+        background: none;
+        border-radius: 3px;
+        color: #fff;
+        transition: all 0.5s 0.3s ease;
+        }
+
+        .searchbar .icon i{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        cursor: pointer;
+        }
+
+        .banner img{
+        width: 100%;
+        height: 350px;
+        }
+
+        .searchbar .icon.active{
+        background: #062333;
+        transition: all 0.3s ease;
+        }
+
+        .searchbar input[type="text"].active{
+        width: 250px;
+        padding: 0 10px;
+        transition: all 0.5s 0.2s ease;
+        }
+
+        @media screen and (max-width: 730px){
+        .wrapper .navbar{
+            padding: 0px;
+            flex-direction: column;
+            height: 200px;
+            justify-content: center;
+        }
+        .wrapper .navbar .menu ul li{
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .searchbar .icon{
+            margin-right: -20px;
+        }
+        }
+        .inactive{
+            color: rgb(200, 200, 200)!important;
+        }
+        /* BUTTON DESIGN START */    
+        #back-to-top-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 26px;
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+            border: 3px solid #333;
+            border-radius: 50%;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in-out;
+            transition-property: background-color, color;
+        }
+        #back-to-top-btn:hover, #back-to-top-btn:focus {
+            background-color: #333;
+            color: #fff;  
+        }
+
+        @media(max-width: 992px) {
+            .container { padding: 20px 100px; }
+            #back-to-top-btn { font-size: 22px; width: 40px; height: 40px; bottom: 15px; right: 15px; }
+            }
+            @media(max-width:768px) {
+            body { font-size: 16px; }
+            .container { padding: 10px 50px; }
+            h1 { font-size: 26px; }
+            h2 { font-size: 22px; }
+            hr { margin: 30px 0; }
+            #back-to-top-btn { font-size: 18px; width: 32px; height: 32px; bottom: 6px; right: 6px; }
+        }
+
+        /* Animations */
+        .btnEntrance {
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-name: btnEntrance;
+        }
+        @keyframes btnEntrance {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .btnExit {
+            animation-duration: 0.25s;
+            animation-fill-mode: both;  
+            animation-name: btnExit;
+        }
+
+        @keyframes btnExit {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+    /* BUTTON DESIGN END */
+    .footer-distributed{
+            background: #2f3542;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 55px 50px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right{
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Footer left */
+
+        .footer-distributed .footer-left{
+            width: 40%;
+        }
+
+        /* The company logo */
+
+        .footer-distributed .a{
+            color:  #ffffff;
+            font-family: 'Balsamiq Sans', cursive;
+            font-size: 40px;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        .footer-distributed .a span{
+            color:  lightseagreen;
+            text-decoration: none;
+        }
+
+        /* Footer links */
+
+        .footer-distributed .footer-links{
+            color:  #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a{
+            display:inline-block;
+            line-height: 1.8;
+        font-weight:400;
+            text-decoration: none;
+            color:  inherit;
+        }
+
+        .footer-distributed .footer-company-name{
+            color:  rgb(204, 204, 204);
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* Footer Center */
+
+        .footer-distributed .footer-center{
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i{
+            background-color:  #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+        .footer-distributed .footer-center img{
+            background-color:  #33383b;
+            color: #ffffff;
+           
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 20px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope{
+            font-size: 17px;
+            line-height: 38px;
+        }
+        .footer-distributed .footer-center p{
+            display: inline-block;
+            color: #ffffff;
+            font-weight:400;
+            vertical-align: middle;
+            margin:0;
+        }
+        .footer-distributed .footer-center p span{
+            display:block;
+            font-weight: normal;
+            font-size:14px;
+            line-height:2;
+        }
+        .footer-distributed .footer-center p a{
+            color:  lightseagreen;
+            text-decoration: none;;
+        }
+        .footer-distributed .footer-links a:before {
+            content: "|";
+            font-weight:300;
+            font-size: 20px;
+            left: 0;
+            color: #fff;
+            display: inline-block;
+            padding-right: 5px;
+        }
+        .footer-distributed .footer-links .link-1:before {
+            content: none;
+        }
+        /* Footer Right */
+        .footer-distributed .footer-right{
+            width: 20%;
+        }
+        .footer-distributed .footer-company-about{
+            line-height: 20px;
+            color:  #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+        .footer-distributed .footer-company-about span{
+            display: block;
+            color:  #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-distributed .footer-icons{
+            margin-top: 25px;
+        }
+
+        .footer-distributed .footer-icons a{
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color:  #33383b;
+            border-radius: 2px;
+
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        .butn{
+            background: #f1f1f1;
+            box-shadow: 0 5px 15px -5px #000000e1;
+            color: rgb(99, 161, 0);
+            overflow: hidden;
+            position: relative;
+        }
+        .butn i{
+            
+            transition: 0.2 linear;
+        }
+        .butn:hover i{
+            transform: scale(1.3);
+            color: #f1f1f1;
+        }
+        .butn::before{
+            content: "";
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            background: rgb(99, 161, 0);
+            transform: rotate(45deg);
+            left: -110%;
+            top: 90%;
+        }
+        .butn:hover::before{
+            animation: aaa 0.7s 1;
+            top: -10%;
+            left: -10%;
+        }
+        @keyframes aaa{
+            0%{
+                left: -110%;
+                top: 90%;
+            }
+            50%{
+                left: 10%;
+                top: -30%;
+            }
+            100%{
+                left: -10%;
+                top: -10%;
+            }
+        }
+
+        /* If you don't want the footer to be responsive, remove these media queries */
+
+        @media (max-width: 880px) {
+
+            .footer-distributed{
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right{
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i{
+                margin-left: 0;
+            }
+
+        }
+        .container-fluid h2{
+        background: teal;
+        color: #fff;
+        width: 235px;
+        font-size: 24px;
+        padding: 8px;
+        height: 40px;
+    }
+    .container-fluid h2::after{
+        content: '';
+        border-top: 40px solid teal;
+        border-right: 40px solid transparent;
+        position: relative;
+        left: 48px;
+        top: 31.5px;
+    }
+    .row{
+        margin-top: 30px;
+    }
+    .product-top img{
+        width: 100%;
+    }
+    .product-bottom .fa{
+        color: #28a745;
+        font-size: 14px;
+    }
+    .product-bottom h3{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .price{
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 400;
+    }
+    .price span{
+    color: rgb(122, 122, 122);
+    text-decoration: line-through;
+    margin-right: 3px;
+    }
+    .overlay{
+        display: block;
+        opacity: 0;
+        position: absolute;
+        top: 10%;
+        margin-left: 0;
+        width: 70px;
+    }
+    .product-top:hover .overlay{
+        opacity: 1;
+        margin-left: 5%;
+        transition: 0.5s;
+    }
+    .overlay .fa{
+        cursor: pointer;
+        background-color: rgb(235, 235, 235);
+        color: #000;
+        height: 35px;
+        width: 35px;
+        font-size: 20px;
+        padding: 7px;
+        margin: 5%;
+        margin-bottom: 5%;
+    }
+    .overlay .btn-secondary{
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    </style>
+</head>
+<body>
+    <button id="back-to-top-btn"><i class="fa fa-angle-double-up"></i></button>
+    <nav>
+        <div class="logo animated bounceInLeft">
+            <a href="#"><img src="pic/shoponlogo.png"></a>
+        </div>
+        <ul>
+            <li><a href=""><i class="fa fa-shopping-cart"></i>Cart</a></li>
+            <li><a href=""><i class="fa fa-user-circle-o"></i>Sign In/Register</a></li>
+        </ul>     
+    </nav>
+<br><br><br><br><br><br>
+<div class="wrapper">
+    <div class="navbar">
+      <div class="menu">
+        <ul>
+            <li><a class="inactive"href="index.html">Home</a></li>
+            <li><a class="inactive" href="contact.html">Contact</a></li>
+            <li><a class="inactive" href="gadget.html">Gadgets</a></li>
+            <li><a class="inactive" href="hdecor.html">Home Decor</a></li>
+            <li><a  href="#">Men</a></li>
+            <li><a class="inactive" href="women.html">Women</a></li>
+            <li><a class="inactive" href="kids.html">Baby & Kid</a></li>
+            <li><a class="inactive" href="sport.html">Sports</a></li>
+            <li><a class="inactive" href="book.html">Books</a></li>
+            <li><a class="inactive" href="booking.html">Flight</a></li>
+        </ul>
+      </div>
+      <div class="searchbar">
+        <input type="text" placeholder="search">
+        <div class="icon">
+          <i class="fas fa-search"></i>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+    <h2>Shirt And T-Shirt</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/1.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>Abstract Men Hooded Neck Dark Blue T-Shirt</h3>
+                <div class="price discount"><span>₹580</span> ₹371</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/2.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>Solid Men Polo Neck White, Black T-Shirt</h3>
+                <div class="price discount"><span>₹999</span> ₹449</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/3.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>Men Solid Formal Wingtip Shirt</h3>
+                <div class="price discount"><span>₹1,200</span> ₹750</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/4.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>Men Checkered Casual Spread Shirt</h3>
+                <div class="price discount"><span>₹1,210</span> ₹629</div>
+            </div>
+        </div>
+    </div>
+     
+</div>
+<br><br>
+<div class="container-fluid">
+    <h2>Pants and Jeans </h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/a1.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>Craft Junction Handcrafted Meditating Little baby Monk Buddha</h3>
+                <div class="price discount"><span>₹550</span> ₹412</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/a2.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>eCraftIndia Golden Handcrafted Buddha Palm</h3>
+                <div class="price discount"><span>₹399</span> ₹294</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/a3.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>eCraftIndia Set Of 3 Ganesha Playing Musical Instruments</h3>
+                <div class="price discount"><span>₹900</span> ₹855</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-top">
+                <img src="men/a4.jpeg">
+                <div class="overlay">
+                    <button type="button" class="btn btn-secondary" title="Quick Shop"><i class="fa fa-eye"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to Wishlist"><i class="fa fa-heart-o"></i></button>
+                    <button type="button" class="btn btn-secondary" title="Add to cart"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="product-bottom text-center">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+                <i class="fa fa-star-o"></i>
+                <h3>Adonai Monk Decorative Showpiece</h3>
+                <div class="price discount"><span>₹1,399</span> ₹749</div>
+            </div>
+        </div>
+    </div>
+     
+</div>
+<br><br><br>
+
+<a href="https://www.flipkart.com/mens-clothing/pr?sid=2oq,s9b&otracker=categorytree&otracker=nmenu_sub_Men_0_Clothing" class="loadmore">View More</a>
+<style>
+    .loadmore{
+        padding: 15px 30px;
+        border: 1px solid black;
+        margin-left: 10px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        color: #000;
+        font-size: 20px;
+        text-decoration: none;
+    }
+</style>
+
+<br>
+<br>
+<br>
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+ <br><br><br>
+        <a href="index.html" class="a">Shopon<span>.com</span></a>
+  
+       
+        <p class="footer-company-name">Shopon.com © 2020</p>
+    </div>
+  
+    <div class="footer-center">
+  
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>44D Lorem ipsum</span>  , Lorem ipsum </p>
+        </div>
+  
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+91 987 654 3210</p>
+        </div>
+  
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="#">support@Shopon.com</a></p>
+        </div>
+
+       
+  
+    </div>
+  
+    <div class="footer-right">
+        
+        <p class="footer-company-about">
+            <span>About the company</span>
+            We Provide <strong>Quality</strong> Product ensuring your <strong>Health</strong> as <strong>No. 1</strong> Priority
+        </p>
+  
+        <div class="footer-icons">
+  
+            <a href="#" class="butn"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="butn"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="butn"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="butn"><i class="fa fa-youtube-play"></i></a>
+  
+       </div>
+  
+    </div>
+  
+  </footer>
+    
+    <!-- JAVASCRIPT -->
+    <!-- NAVBAR 2 -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".fa-search").click(function(){
+			   $(".icon").toggleClass("active");
+			   $("input[type='text']").toggleClass("active");
+			});
+		});
+	</script>
+    <!--BUTTONS TO GO TOP-->
+    <script>
+        // BUTTON DESIGN START-------------------------------------------
+            const backToTopButton = document.querySelector("#back-to-top-btn");
+    
+            window.addEventListener("scroll", scrollFunction);
+    
+            function scrollFunction() {
+            if (window.pageYOffset > 300) { // Show backToTopButton
+                if(!backToTopButton.classList.contains("btnEntrance")) {
+                backToTopButton.classList.remove("btnExit");
+                backToTopButton.classList.add("btnEntrance");
+                backToTopButton.style.display = "block";
+                }
+            }
+            else { // Hide backToTopButton
+                if(backToTopButton.classList.contains("btnEntrance")) {
+                backToTopButton.classList.remove("btnEntrance");
+                backToTopButton.classList.add("btnExit");
+                setTimeout(function() {
+                    backToTopButton.style.display = "none";
+                }, 250);
+                }
+            }
+            }
+    
+            backToTopButton.addEventListener("click", smoothScrollBackToTop);
+    
+            // function backToTop() {
+            //   window.scrollTo(0, 0);
+            // }
+    
+            function smoothScrollBackToTop() {
+            const targetPosition = 0;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 750;
+            let start = null;
+            
+            window.requestAnimationFrame(step);
+    
+            function step(timestamp) {
+                if (!start) start = timestamp;
+                const progress = timestamp - start;
+                window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                if (progress < duration) window.requestAnimationFrame(step);
+            }
+            }
+    
+            function easeInOutCubic(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t*t + b;
+                t -= 2;
+                return c/2*(t*t*t + 2) + b;
+            };
+        //END--------------------------------------------------------------------------------------------
+        //
+    </script>
+    <!-- JQUERY CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- NAV BAR JQUERY -->
+    <script type="text/javascript">
+            $(window).on('scroll',function(){
+                if ($(window).scrollTop()){
+                    $('nav').addClass('black');
+                }
+                else
+                {
+                    $('nav').removeClass('black');
+                }
+            })
+    </script>
+    <!--BOOTSTRAP-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!--WAYPOINT-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+</body>
+</html>

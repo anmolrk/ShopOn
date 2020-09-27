@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Century Gothic;
+        }
+        body{
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(pic/6.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        header{            
+            height: 10vh;
+            background-size: cover;
+            background-position: top;
+        }
+        .main > ul{
+            float: right;
+            list-style-type: none;
+            margin-top: 3%; 
+            margin-right: 3%;
+        }
+        .main > ul li{
+            display: inline-block;
+            
+        }
+        .main > ul li a{
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            transition: 0.6s ease;
+            border: 1px solid white ;
+            border-radius: 20px;
+        }
+        .main > ul li a:hover{
+            background-color: white;
+            color: black;
+        }
+        
+        .main > ul li.on a{
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid white ;
+            
+       }
+        .fa{
+            margin-left: 8px;
+        }
+        
+        .form-box{
+            width: 380px;
+            height: 480px;
+            position: relative;
+            margin-top: 4%;
+            margin-left: 45%;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            overflow: hidden;
+            border-radius: 25px;
+        }
+        .form-box-cp{
+            margin-top: 2%;
+            margin-left: 50.5%;
+            height: 30px;
+            width: 200px;
+            position: absolute;
+            padding: 15px;
+            overflow: hidden;
+        }
+        .button-box{
+            width: 220px;
+            margin: 35px auto;
+            position: relative;
+            box-shadow: 0 0 20px 9px #2445ff1f;
+            border-radius: 30px;
+        }
+        .toggle-btn{
+            padding: 10px 30px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+        }
+        
+        #btn{
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 110px;
+            height: 100%;
+            background: linear-gradient(to right, #01cc7e, #30f1b1);
+            border-radius: 30px;
+            transition: 0.5s;
+        }
+        .social-icon{
+            margin: 30px auto;
+            text-align: center;
+        }
+        .social-icon img{
+            width: 30px;
+            margin: 0 15px;
+            box-shadow: 0 0 20px 0 #7f7f7f3d;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .social-icon img:hover{
+        transform: scale(1.2);
+        }
+        .input-group{
+            top: 180px;
+            position: absolute;
+            width: 280px;
+            transform: 0.5s;
+        }
+        .input-field{
+            width: 100%;
+            padding: 10px 0;
+            margin: 5px 0;
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 1px solid #999;
+            outline: none;
+            background: transparent;
+        }
+        .submit-btn{
+            width: 85%;
+            padding: 10px 30px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+            background: linear-gradient(to right, #01cc7e, #30f1b1);
+            border: 0;
+            outline: none;
+            border-radius: 30px;
+        }
+        .submit-btn:hover{
+            background: #01cc7e;
+        }
+        .check-box{
+            margin: 30px 10px 30px 0;
+        }
+        span{
+            color: #777;
+            font-size: 12px;
+            bottom: 66px;
+            position: absolute;
+        }
+        .tc{
+            color: #777;
+            font-size: 12px;
+            bottom: 66px;
+            position: absolute;
+        }        
+        #login{
+            left: 50px;
+        }
+        #reg{
+            left: 450px;
+        }
+        #btnn
+        {
+            left: 450px;
+        }
+        .btnn{
+            position: relative;
+            color: rgb(0, 0, 0);
+	        text-decoration: none;
+            background: linear-gradient(to right, #01cc7e, #30f1b1);
+            width: 8%;
+            padding: 15px 30px;
+            border-radius: 50px;
+        }
+        .btnn:hover{
+            background: #01cc7e;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+		<div class="main">
+            <ul>
+                    <li><a href="index.html">Home<i class="fa fa-home"></i></a></li>
+            </ul>
+	</header>
+    <div class="contain">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="reg()">Register</button>
+            </div>
+            <div class="social-icon">
+                <img src="pic/fb.jpg">
+                <img src="pic/tw.jpg">
+                <img src="pic/g+.jpg">
+            </div>
+            <form id="login" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box"><span>Remember Password</span>
+                <button type="submit" class="submit-btn">Log in</button>
+            </form>
+            <form id="reg" class="input-group">
+                <input type="text" class="input-field" placeholder="Name" required>
+                <input type="text" class="input-field" placeholder="Email Id" required>
+                <input type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="password" class="input-field" placeholder="Confirm Password" required>
+                <input type="checkbox" class="check-box"><a href="Terms&condition.html"  class="tc">I agree to Terms & Conditions</a>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+        <div class="form-box-cp">
+        <a href="details.html" id="btnn" class="btnn">Complete Profile</a>
+        </div>
+    </div>
+
+
+<!------------------Javascript for movement----------------------->
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("reg");
+        var z = document.getElementById("btn");
+        var w = document.getElementById("btnn");
+
+        function reg(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+            w.style.left = "0px";
+        }
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+            w.style.left = "-430px";
+        }
+    </script>
+    
+</body>
+</html>
