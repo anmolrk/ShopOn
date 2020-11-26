@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <style>
+        * {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ddd;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+nav {
+  background: rgb(255, 0, 0);
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.10)
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  text-align: left;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  display: block;
+  padding: .75em 1.75em;
+}
+
+nav li:hover {
+  background: #444;
+}
+
+nav li:hover a {
+  color: #fff;
+}
+
+
+.menu-sub {
+  position: absolute;
+  left: 0;
+  background: #444;
+  width: 100%;
+  display: none;
+  color: #fff;
+  padding: 2em;
+}
+
+nav li:hover .menu-sub {
+  display: block;
+}
+
+.menu-sub li {
+  display: block;
+}
+
+.menu-sub a {
+  padding: 0;
+  margin-bottom: .35em;
+}
+
+.menu-sub a:hover {
+  text-decoration: underline;
+}
+
+.menu-category {
+  margin: 2.5em 0 .5em;
+}
+
+.menu-category:first-of-type {
+  margin-top: 0;
+}
+
+.menu-col-1,
+.menu-col-2,
+.menu-col-3,
+.menu-col-4 {
+  float: left;
+}
+
+.menu-col-1 {
+  width: 25%;
+}
+
+.menu-col-2 {
+  width: 50%;
+}
+.searchbar{
+        position: relative!important;
+        }
+
+        .searchbar input[type="text"]{
+        border: 0!important;
+        padding: 0!important;
+        width: 0px!important;
+        height: 35px!important;
+        border-radius: 3px!important;
+        transition: all 0.3s ease!important;
+        }
+
+        .searchbar .icon{
+        position: absolute!important;
+        top: 0!important;
+        right: 0!important;
+        width: 35px!important;
+        height: 100%!important;
+        background: none!important;
+        border-radius: 3px!important;
+        color: #fff!important;
+        transition: all 0.5s 0.3s ease!important;
+        }
+
+        .searchbar .icon i{
+        position: absolute!important;
+        top: 50%!important;
+        left: 50%!important;
+        transform: translate(-50%,-50%)!important;
+        cursor: pointer!important;
+        }
+
+        .banner img{
+        width: 100%!important;
+        height: 350px!important;
+        }
+
+        .searchbar .icon.active{
+        background: #062333!important;
+        transition: all 0.3s ease!important;
+        }
+
+        .searchbar input[type="text"].active{
+        width: 250px!important;
+        padding: 0 10px!important;
+        transition: all 0.5s 0.2s ease!important;
+        }
+
+        @media screen and (max-width: 730px){
+        .wrapper .navbar{
+            padding: 0px!important;
+            flex-direction: column!important;
+            height: 200px!important;
+            justify-content: center!important;
+        }
+        .wrapper .navbar .menu ul li{
+            display: block!important;
+            text-align: center!important;
+            margin: 10px 0!important;
+        }
+        .searchbar .icon{
+            margin-right: -20px!important;
+        }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+          <ul class="menu-main">
+  
+  
+            <li><a href="">Tab 01</a>
+              <div class="menu-sub">
+                
+                <div class="menu-col-1">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                  </ul>
+                </div>
+  
+                <div class="menu-col-1">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+                </div>
+  
+                <div class="menu-col-1">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+                </div>
+  
+                <div class="menu-col-1">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+  
+            <li><a href="">Tab 02</a>
+              <div class="menu-sub">
+                <div class="menu-col-2">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                  </ul>
+                </div>
+  
+                <div class="menu-col-1">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+                </div>
+  
+                <div class="menu-col-1">
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+  
+                  <h3 class="menu-category">Category</h3>
+                  <ul>
+                    <li><a href="">Link 01</a></li>
+                    <li><a href="">Link 02</a></li>
+                    <li><a href="">Link 03</a></li>
+                    <li><a href="">Link 04</a></li>
+                    <li><a href="">Link 05</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+  
+            <li><a href="">Tab 03</a></li>
+            <li><a href="">Tab 04</a></li>
+            <div class="searchbar">
+                <input type="text" placeholder="search">
+                <div class="icon">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+          </ul>
+      </div>
+      
+    </nav>
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".fa-search").click(function(){
+			   $(".icon").toggleClass("active");
+			   $("input[type='text']").toggleClass("active");
+			});
+		});
+	</script>
+</body>
+</html>
